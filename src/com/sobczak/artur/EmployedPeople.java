@@ -14,7 +14,7 @@ public class EmployedPeople <E> {
         Employee.add(employe);
     }
 
-    public void deleteElement(E itemInTheList){
+    public void removeElement(int itemInTheList){
         Employee.remove(itemInTheList);
         System.out.println("Item " + itemInTheList + "has been removed!");
     }

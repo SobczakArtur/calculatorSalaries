@@ -12,25 +12,45 @@ public class Main {
 //        String takeChar = scanner.nextLine();
 
         char choice = 0;
-        boolean employeeAccess = true;
+        boolean addElements = true;
+        boolean removeElements = true;
 
-        while (employeeAccess) {
+        System.out.println("What kind of operation on list want to do ?\nAdding elements, delete or update?\nIf you have adding use 'A', remove 'R' or uptade 'U'");
+        choice = getChar().charAt(0);
+        if (choice == '+'){
+            addElements = true;
+        } else if (choice == '-'){
+            removeElements = true;
+        }
+
+        while (addElements) {
             System.out.println("Please enter the person's details.");
             employedPeople.addEmployee(getDataToList());
             System.out.println("Are you have add another data to list?\nIf yes enter 'Y', if no enter 'N'");
             choice = getChar().charAt(0);
             if (choice == 'Y'){
-                employeeAccess = true;
+
             } else if (choice == 'N'){
-                employeeAccess = false;
+                addElements = false;
             }
         }
         employedPeople.printList();
+
+        while (removeElements){
+            employedPeople.removeElement(geListPosition());
+        }
+
+
+
+
     }
     public static String getDataToList() {
         return new Scanner(System.in).nextLine();
     }
     public static String getChar() {
         return new Scanner(System.in).nextLine();
+    }
+    public static int geListPosition() {
+        return new Scanner(System.in).nextInt();
     }
 }
