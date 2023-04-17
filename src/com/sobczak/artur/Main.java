@@ -4,29 +4,65 @@ import java.util.*;
 
 public class Main {
 
+    public static boolean continueAdd(char choiceOperation, boolean addElements) {
+        System.out.println("Are you have continue?\nIf yes enter 'Y', if no enter 'N'");
+        choiceOperation = getChar().charAt(0);
+        if (choiceOperation == 'Y') {
+
+        } else if (choiceOperation == 'N') {
+                addElements = false;
+
+        }
+        return addElements;
+    }
+
+    public static boolean continueRemove(char choiceOperation, boolean removeElements) {
+        System.out.println("Are you have continue?\nIf yes enter 'Y', if no enter 'N'");
+        choiceOperation = getChar().charAt(0);
+        if (choiceOperation == 'Y') {
+
+        } else if (choiceOperation == 'N') {
+                removeElements = false;
+        }
+        return removeElements;
+    }
+
+    public static boolean continueUpdate(char choiceOperation, boolean updateElements) {
+        System.out.println("Are you have continue?\nIf yes enter 'Y', if no enter 'N'");
+        choiceOperation = getChar().charAt(0);
+        if (choiceOperation == 'Y') {
+
+        } else if (choiceOperation == 'N') {
+                updateElements = false;
+        }
+        return updateElements;
+    }
+
     public static void main(String[] args) {
 
 
         EmployedPeople<String> employedPeople = new EmployedPeople<>();
 
-        char choice;
+        char choiceOperation;
         boolean addElements = false;
         boolean removeElements = false;
         boolean updateElements = false;
-        boolean aboutContinue = true;
 
         System.out.println("What kind of operation on list want to do ?\nAdding elements, delete or update?\nIf you have adding use 'A', remove 'R' or uptade 'U'");
-        choice = getChar().charAt(0);
-        if (choice == 'A'){
+        choiceOperation = getChar().charAt(0);
+        if (choiceOperation == 'A') {
             addElements = true;
-        } else if (choice == 'R'){
+        } else if (choiceOperation == 'R') {
             removeElements = true;
-        } else if (choice == 'U'){
+        } else if (choiceOperation == 'U') {
             updateElements = true;
         }
 
-        while (addElements && aboutContinue) {
+        while (addElements) {
+            System.out.println("Please enter the person's details.");
             employedPeople.addEmployee(getDataToList());
+            Main.continueAdd(choiceOperation, addElements);
+//            bonus.continueAdd(choiceOperation, addElements);
 //            System.out.println("Are you have add another data to list?\nIf yes enter 'Y', if no enter 'N'");
 //            choice = getChar().charAt(0);
 //            if (choice == 'Y'){
@@ -37,44 +73,36 @@ public class Main {
         }
         employedPeople.printList();
 
-        while (removeElements && aboutContinue){
+        while (removeElements) {
+            System.out.println("Which position are you want remove?");
             employedPeople.removeElement(getListPosition());
 //            System.out.println("Item " + Main.getListPosition() + "has been removed!");
-            System.out.println("Are you have remove another data from list?\nIf yes enter 'Y', if no enter 'N'");
         }
         employedPeople.printList();
 
-        while (updateElements && aboutContinue){
+        while (updateElements) {
+            System.out.println("Which element to be updated: ");
             employedPeople.updateElements(getListPosition(), getDataToList());
         }
         employedPeople.printList();
 
 
     }
+
     public static String getDataToList() {
         return new Scanner(System.in).nextLine();
     }
+
     public static String getChar() {
+
         return new Scanner(System.in).nextLine();
     }
+
     public static int getListPosition() {
+
         return new Scanner(System.in).nextInt();
     }
-    public static boolean askAboutContinue(char choice, boolean addElements, boolean removeElements, boolean updateElements){
-        boolean aboutContinue;
-        System.out.println("Are you have continue?\nIf yes enter 'Y', if no enter 'N'");
-        choice = getChar().charAt(0);
-        if (choice == 'Y' && addElements == true){
 
-        } else if (choice == 'N' && addElements == true){
-            addElements = false;
-            aboutContinue = addElements;
-        } else if (choice == 'Y' && removeElements == true){
-
-        } else if (choice == 'N' && removeElements == true){
-            removeElements = false;
-            aboutContinue = removeElements;
-
-        return aboutContinue;
-    }
 }
+
+
