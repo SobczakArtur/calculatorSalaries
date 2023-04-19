@@ -8,20 +8,18 @@ public class EmployedPeople <E> {
     private List<E> employee = new ArrayList<>();
 
     public void addEmployee(E employe){
-        System.out.println();
         System.out.println("The person has been added to the list!");
         employee.add(employe);
-
     }
 
     public void removeElement(int itemInTheList){
-        System.out.println("Item " + itemInTheList + "has been removed!");
+        System.out.println("Item " + itemInTheList + " has been removed!");
         employee.remove(itemInTheList);
     }
 
-    public void updateElements(int index, E element){
-        System.out.println("Element " + index + "has been updated!");
-        employee.set(index, element);
+    public void updateElements(int itemInTheList, E element){
+        System.out.println("Element " + itemInTheList + " has been updated!");
+        employee.set(itemInTheList, element);
     }
 
     public void printList(){
@@ -31,6 +29,5 @@ public class EmployedPeople <E> {
         }
         System.out.println();
     }
-
 
 }
