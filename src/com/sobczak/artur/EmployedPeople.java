@@ -1,33 +1,72 @@
 package com.sobczak.artur;
 
-import java.util.ArrayList;
-import java.util.List;
+public class EmployedPeople {
+    String name, secondName, surname, address;
+    int age, pesel, phone;
 
-public class EmployedPeople <E> {
+//    public EmployedPeople(String name, String secondName, String surname, String address, int age, int pesel, int phone){
+//        this.name = name;
+//        this.secondName = secondName;
+//        this.surname = surname;
+//        this.address = address;
+//        this.age = age;
+//        this.pesel = pesel;
+//        this.phone = phone;
+//    }
 
-    private List<E> employee = new ArrayList<>();
-
-    public void addEmployee(E employe){
-        System.out.println("The person has been added to the list!");
-        employee.add(employe);
+    public String getName() {
+        return name;
     }
 
-    public void removeElement(int itemInTheList){
-        System.out.println("Item " + itemInTheList + " has been removed!");
-        employee.remove(itemInTheList);
+    public void setName(String name) {
+        this.name = name;
     }
 
-    public void updateElements(int itemInTheList, E element){
-        System.out.println("Element " + itemInTheList + " has been updated!");
-        employee.set(itemInTheList, element);
+    public String getSecondName() {
+        return secondName;
     }
 
-    public void printList(){
-        System.out.println("Entire list");
-        for (E entireList : employee) {
-            System.out.print(entireList + " ");
-        }
-        System.out.println();
+    public void setSecondName(String secondName) {
+        this.secondName = secondName;
     }
 
+    public String getSurname() {
+        return surname;
+    }
+
+    public void setSurname(String surname) {
+        this.surname = surname;
+    }
+
+    public String getAddress() {
+        return address;
+    }
+
+    public void setAddress(String address) {
+        this.address = address;
+    }
+
+    public int getAge() {
+        return age;
+    }
+
+    public void setAge(int age) {
+        this.age = age;
+    }
+
+    public int getPesel() {
+        return pesel;
+    }
+
+    public void setPesel(int pesel) {
+        this.pesel = pesel;
+    }
+
+    public int getPhone() {
+        return phone;
+    }
+
+    public void setPhone(int phone) {
+        this.phone = phone;
+    }
 }

@@ -6,8 +6,8 @@ public class Main {
 
     public static void main(String[] args) {
 
-
-        EmployedPeople<String> employedPeople = new EmployedPeople<>();
+        EmployedPeople employedPeople = new EmployedPeople();
+        OperationOnList<EmployedPeople> operationOnList = new OperationOnList<>();
 
         char choiceOperation;
         boolean addElements = false;
@@ -45,7 +45,7 @@ public class Main {
 
             while (addElements) {
                 System.out.println("Please enter the person's details.");
-                employedPeople.addEmployee(getDataToList());
+                operationOnList.addEmployee(employedPeople);
                 System.out.println("Are you have continue?\nIf yes enter 'Y', if no enter 'N'");
                 choiceOperation = getChar().charAt(0);
                 if (choiceOperation == 'Y') {
@@ -61,7 +61,7 @@ public class Main {
 
             while (removeElements) {
                 System.out.println("Which position are you want remove?");
-                employedPeople.removeElement(getListPosition());
+                operationOnList.removeElement(getListPosition());
                 System.out.println("Are you have continue?\nIf yes enter 'Y', if no enter 'N'");
                 choiceOperation = getChar().charAt(0);
                 if (choiceOperation == 'Y') {
@@ -77,7 +77,7 @@ public class Main {
 
             while (updateElements) {
                 System.out.println("Which element to be updated: ");
-                employedPeople.updateElements(getListPosition(), getDataToList());
+                operationOnList.updateElements(getListPosition(), employedPeople);
                 System.out.println("Are you have continue?\nIf yes enter 'Y', if no enter 'N'");
                 choiceOperation = getChar().charAt(0);
                 if (choiceOperation == 'Y') {
@@ -92,7 +92,7 @@ public class Main {
             }
 
             while (printList){
-                employedPeople.printList();
+                operationOnList.printList();
                 printList = false;
             }
 
