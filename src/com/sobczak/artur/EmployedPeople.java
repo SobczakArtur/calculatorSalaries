@@ -1,8 +1,9 @@
 package com.sobczak.artur;
 
 public class EmployedPeople {
-    String name, secondName, surname, address;
-    int age, pesel, phone;
+
+    private String name, secondName, surname, address;
+    private int age, pesel, phone;
 
 //    public EmployedPeople(String name, String secondName, String surname, String address, int age, int pesel, int phone){
 //        this.name = name;
@@ -20,6 +21,7 @@ public class EmployedPeople {
 
     public void setName(String name) {
         this.name = name;
+        System.out.println("Name has added!");
     }
 
     public String getSecondName() {
@@ -28,6 +30,7 @@ public class EmployedPeople {
 
     public void setSecondName(String secondName) {
         this.secondName = secondName;
+        System.out.println("Second name has added!");
     }
 
     public String getSurname() {
@@ -36,6 +39,7 @@ public class EmployedPeople {
 
     public void setSurname(String surname) {
         this.surname = surname;
+        System.out.println("Surname has added!");
     }
 
     public String getAddress() {
@@ -44,6 +48,7 @@ public class EmployedPeople {
 
     public void setAddress(String address) {
         this.address = address;
+        System.out.println("Addres has added!");
     }
 
     public int getAge() {
@@ -52,6 +57,7 @@ public class EmployedPeople {
 
     public void setAge(int age) {
         this.age = age;
+        System.out.println("Age has added!");
     }
 
     public int getPesel() {
@@ -60,6 +66,7 @@ public class EmployedPeople {
 
     public void setPesel(int pesel) {
         this.pesel = pesel;
+        System.out.println("Pesel has added!");
     }
 
     public int getPhone() {
@@ -68,5 +75,8 @@ public class EmployedPeople {
 
     public void setPhone(int phone) {
         this.phone = phone;
+        System.out.println("Phone has added!");
     }
+
+
 }

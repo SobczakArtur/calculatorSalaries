@@ -8,6 +8,7 @@ public class OperationOnList<E> {
 
     private List<E> employee = new ArrayList<>();
 
+
     public void addEmployee(E employe){
         System.out.println("The person has been added to the list!");
         employee.add(employe);

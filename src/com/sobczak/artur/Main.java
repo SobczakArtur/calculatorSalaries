@@ -44,7 +44,6 @@ public class Main {
             }
 
             while (addElements) {
-                System.out.println("Please enter the person's details.");
                 operationOnList.addEmployee(employedPeople);
                 System.out.println("Are you have continue?\nIf yes enter 'Y', if no enter 'N'");
                 choiceOperation = getChar().charAt(0);
@@ -102,8 +101,6 @@ public class Main {
                 accessToProgram = false;
             }
 
-
-
         }
     }
 
@@ -112,12 +109,10 @@ public class Main {
     }
 
     public static String getChar() {
-
         return new Scanner(System.in).nextLine();
     }
 
     public static int getListPosition() {
-
         return new Scanner(System.in).nextInt();
     }
 
