@@ -9,28 +9,33 @@ public class EmployeeData extends EmployedPeople {
 
     public void setEmployeeData() {
 
+        set = true;
         while (set) {
-            System.out.println("Please enter the person's details like: name,\n secondName,\n surname,\n address,\n age,\n pesel,\n phone");
+            System.out.println("Please enter the person's details like:\n name,\n second name,\n surname,\n address,\n age,\n pesel,\n phone number\n" +
+                    "Give name:");
             setName(getDataToList());
+            System.out.println("Give second name:");
             setSecondName(getDataToList());
+            System.out.println("Give surname:");
             setSurname(getDataToList());
+            System.out.println("Give address:");
             setAddress(getDataToList());
+            System.out.println("Give age:");
             setAge(getNumberValue());
+            System.out.println("Give pesel:");
             setPesel(getNumberValue());
+            System.out.println("Give phone number:");
             setPhone(getNumberValue());
 
+            set = false;
 
-            System.out.println("Are you have continue?\nIf yes enter 'Y', if no enter 'N'");
-            choiceOperation = getChar().charAt(0);
-            if (choiceOperation == 'Y') {
-
-            } else if (choiceOperation == 'y') {
-
-            } else if (choiceOperation == 'N') {
-                set = false;
-            } else if (choiceOperation == 'n') {
-                set = false;
-            }
+//            System.out.println("Are you have continue?\nIf yes enter 'Y', if no enter 'N'");
+//            choiceOperation = getChar().charAt(0);
+//            if (choiceOperation == 'Y' || choiceOperation == 'y') {
+//
+//            } else if (choiceOperation == 'N' || choiceOperation == 'n') {
+//                set = false;
+//            }
         }
     }
 
@@ -38,8 +43,8 @@ public class EmployeeData extends EmployedPeople {
         return new Scanner(System.in).nextLine();
     }
 
-    public static int getNumberValue() {
-        return new Scanner(System.in).nextInt();
+    public static long getNumberValue() {
+        return new Scanner(System.in).nextLong();
     }
 
     public static String getChar() {

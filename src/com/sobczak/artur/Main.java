@@ -7,6 +7,7 @@ public class Main {
     public static void main(String[] args) {
 
         EmployedPeople employedPeople = new EmployedPeople();
+        EmployeeData employeeData = new EmployeeData();
         OperationOnList<EmployedPeople> operationOnList = new OperationOnList<>();
 
         char choiceOperation;
@@ -21,39 +22,26 @@ public class Main {
             System.out.println("What kind of operation on list want to do ?" +
                     "\nIf you have adding elements use 'A' or 'a', remove 'R' or 'r', update 'U' or 'u', print list 'P' or 'p' or end 'E' or 'e'");
             choiceOperation = getChar().charAt(0);
-            if (choiceOperation == 'A') {
+            if (choiceOperation == 'A' || choiceOperation == 'a') {
                 addElements = true;
-            } else if (choiceOperation == 'a') {
-                addElements = true;
-            } else if (choiceOperation == 'R') {
+            } else if (choiceOperation == 'R' || choiceOperation == 'r') {
                 removeElements = true;
-            } else if (choiceOperation == 'r') {
-                removeElements = true;
-            } else if (choiceOperation == 'U') {
+            } else if (choiceOperation == 'U' || choiceOperation == 'u') {
                 updateElements = true;
-            } else if (choiceOperation == 'u') {
-                updateElements = true;
-            } else if (choiceOperation == 'E') {
+            } else if (choiceOperation == 'E' || choiceOperation == 'e') {
                 endProgram = true;
-            } else if (choiceOperation == 'e') {
-                endProgram = true;
-            } else if (choiceOperation == 'P'){
-                printList = true;
-            } else if (choiceOperation == 'p'){
+            } else if (choiceOperation == 'P' || choiceOperation == 'p'){
                 printList = true;
             }
 
             while (addElements) {
+                employeeData.setEmployeeData();
                 operationOnList.addEmployee(employedPeople);
                 System.out.println("Are you have continue?\nIf yes enter 'Y', if no enter 'N'");
                 choiceOperation = getChar().charAt(0);
-                if (choiceOperation == 'Y') {
+                if (choiceOperation == 'Y' || choiceOperation == 'y') {
 
-                } else if (choiceOperation == 'y') {
-
-                } else if (choiceOperation == 'N') {
-                    addElements = false;
-                } else if (choiceOperation == 'n') {
+                } else if (choiceOperation == 'N' || choiceOperation == 'n') {
                     addElements = false;
                 }
             }
@@ -63,13 +51,9 @@ public class Main {
                 operationOnList.removeElement(getListPosition());
                 System.out.println("Are you have continue?\nIf yes enter 'Y', if no enter 'N'");
                 choiceOperation = getChar().charAt(0);
-                if (choiceOperation == 'Y') {
+                if (choiceOperation == 'Y' || choiceOperation == 'y') {
 
-                } else if (choiceOperation == 'y') {
-
-                } else if (choiceOperation == 'N') {
-                    removeElements = false;
-                } else if (choiceOperation == 'n') {
+                } else if (choiceOperation == 'N' || choiceOperation == 'n') {
                     removeElements = false;
                 }
             }
@@ -77,15 +61,12 @@ public class Main {
             while (updateElements) {
                 System.out.println("Which element to be updated: ");
                 operationOnList.updateElements(getListPosition(), employedPeople);
+                employeeData.setEmployeeData();
                 System.out.println("Are you have continue?\nIf yes enter 'Y', if no enter 'N'");
                 choiceOperation = getChar().charAt(0);
-                if (choiceOperation == 'Y') {
+                if (choiceOperation == 'Y' || choiceOperation == 'y') {
 
-                } else if (choiceOperation == 'y') {
-
-                } else if (choiceOperation == 'N') {
-                    updateElements = false;
-                } else if (choiceOperation == 'n') {
+                } else if (choiceOperation == 'N' || choiceOperation == 'n') {
                     updateElements = false;
                 }
             }

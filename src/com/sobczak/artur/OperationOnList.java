@@ -1,6 +1,7 @@
 package com.sobczak.artur;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 public class OperationOnList<E> {
@@ -26,10 +27,11 @@ public class OperationOnList<E> {
 
     public void printList(){
         System.out.println("Entire list");
-        for (E entireList : employee) {
-            System.out.print(entireList + " ");
-        }
+
+        System.out.print(employee.toArray());
+        System.out.print(employee.toString());
         System.out.println();
     }
+
 
 }
