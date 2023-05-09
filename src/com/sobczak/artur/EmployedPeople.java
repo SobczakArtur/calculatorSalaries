@@ -76,5 +76,16 @@ public class EmployedPeople {
         System.out.println("Phone has added!");
     }
 
+    @Override
+    public String toString() {
+        return "EmployedPeople\n" +
+                "name='" + getName() + '\'' +
+                ", secondName='" + getSecondName() + '\'' +
+                ", surname='" + getSurname() + '\'' +
+                ", address='" + getAddress() + '\'' +
+                ", age=" + getAge() +
+                ", pesel=" + getPesel() +
+                ", phone=" + getPhone() + "\n";
+    }
 
 }

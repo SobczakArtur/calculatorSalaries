@@ -1,18 +1,17 @@
 package com.sobczak.artur;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 public class OperationOnList<E> {
 
 
-    private List<E> employee = new ArrayList<>();
+    final List<E> employee = new ArrayList<>();
 
 
     public void addEmployee(E employe){
-        System.out.println("The person has been added to the list!");
-        employee.add(employe);
+            System.out.println("The person has been added to the list!");
+            employee.add(employe);
     }
 
     public void removeElement(int itemInTheList){
@@ -28,8 +27,9 @@ public class OperationOnList<E> {
     public void printList(){
         System.out.println("Entire list");
 
-        System.out.print(employee.toArray());
-        System.out.print(employee.toString());
+        for (E entireList : employee) {
+            System.out.println(entireList);
+        }
         System.out.println();
     }
 

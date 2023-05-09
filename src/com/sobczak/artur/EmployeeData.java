@@ -5,7 +5,6 @@ import java.util.Scanner;
 public class EmployeeData extends EmployedPeople {
 
     boolean set = true;
-    char choiceOperation;
 
     public void setEmployeeData() {
 
@@ -21,11 +20,11 @@ public class EmployeeData extends EmployedPeople {
             System.out.println("Give address:");
             setAddress(getDataToList());
             System.out.println("Give age:");
-            setAge(getNumberValue());
+            setAge(getNumberValue()); // TODO add exception
             System.out.println("Give pesel:");
-            setPesel(getNumberValue());
+            setPesel(getNumberValue()); // TODO add exception
             System.out.println("Give phone number:");
-            setPhone(getNumberValue());
+            setPhone(getNumberValue()); // TODO add exception
 
             set = false;
 
@@ -47,7 +46,7 @@ public class EmployeeData extends EmployedPeople {
         return new Scanner(System.in).nextLong();
     }
 
-    public static String getChar() {
-        return new Scanner(System.in).nextLine();
-    }
+//    public static String getChar() {
+//        return new Scanner(System.in).nextLine();
+//    }
 }

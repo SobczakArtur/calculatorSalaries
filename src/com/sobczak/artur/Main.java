@@ -6,8 +6,8 @@ public class Main {
 
     public static void main(String[] args) {
 
-        EmployedPeople employedPeople = new EmployedPeople();
-        EmployeeData employeeData = new EmployeeData();
+//        EmployedPeople employedPeople = new EmployedPeople();
+//        EmployeeData employeeData = new EmployeeData();
         OperationOnList<EmployedPeople> operationOnList = new OperationOnList<>();
 
         char choiceOperation;
@@ -35,8 +35,9 @@ public class Main {
             }
 
             while (addElements) {
+                EmployeeData employeeData = new EmployeeData();
                 employeeData.setEmployeeData();
-                operationOnList.addEmployee(employedPeople);
+                operationOnList.addEmployee(employeeData);
                 System.out.println("Are you have continue?\nIf yes enter 'Y', if no enter 'N'");
                 choiceOperation = getChar().charAt(0);
                 if (choiceOperation == 'Y' || choiceOperation == 'y') {
@@ -44,6 +45,7 @@ public class Main {
                 } else if (choiceOperation == 'N' || choiceOperation == 'n') {
                     addElements = false;
                 }
+
             }
 
             while (removeElements) {
@@ -59,9 +61,11 @@ public class Main {
             }
 
             while (updateElements) {
-                System.out.println("Which element to be updated: ");
-                operationOnList.updateElements(getListPosition(), employedPeople);
+                System.out.println("Please give data employee which have you update: ");
+                EmployeeData employeeData = new EmployeeData();
                 employeeData.setEmployeeData();
+                System.out.println("Which element to be updated: ");
+                operationOnList.updateElements(getListPosition(), employeeData);
                 System.out.println("Are you have continue?\nIf yes enter 'Y', if no enter 'N'");
                 choiceOperation = getChar().charAt(0);
                 if (choiceOperation == 'Y' || choiceOperation == 'y') {
