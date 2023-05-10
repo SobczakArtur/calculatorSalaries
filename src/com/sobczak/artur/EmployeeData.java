@@ -35,28 +35,34 @@ public class EmployeeData extends EmployedPeople {
             while (accessAgeNumber) {
                 try {
                     System.out.println("Give age:");
-                    setAge(getAgeValue()); // TODO - addition throws exception about long age
+                    setAge(getAgeValue());
                     accessAgeNumber = false;
-                } catch (InputMismatchException | NieprawidlowyWiekException e) {
-                    System.out.println("Invalid data" + "\nPlease enter a numerical value or value age under 65");
+                } catch (InputMismatchException e) {
+                    System.out.println("Invalid data!" + "\nPlease enter a numerical value!");
+                } catch (NieprawidlowyWiekException e) {
+                    System.out.println("Invalid data! " + e.getMessage());
                 }
             }
             while (accessPeselNumber) {
                 try {
                     System.out.println("Give pesel:");
-                    setPesel(getPeselValue()); // TODO - addition throws exception about long PESEL
+                    setPesel(getPeselValue());
                     accessPeselNumber = false;
-                }catch (InputMismatchException | NieprawidlowyWiekException e) {
-                    System.out.println("Invalid data" + "\nPlease enter a numerical value or PESEL equals to 11 positions");
+                } catch (InputMismatchException e) {
+                    System.out.println("Invalid data!" + "\nPlease enter a numerical value!");
+                } catch (NieprawidlowyWiekException e) {
+                    System.out.println("Invalid data! " + e.getMessage());
                 }
             }
             while (accessPhoneNumber) {
                 try {
                     System.out.println("Give phone number:");
-                    setPhone(getPhoneValue()); // TODO - addition throws exception about long phone number
+                    setPhone(getPhoneValue());
                     accessPhoneNumber = false;
-                }catch (InputMismatchException | NieprawidlowyWiekException e) {
-                    System.out.println("Invalid data" + "\nPlease enter a numerical value or phone number equals to 12 positions");
+                } catch (InputMismatchException e) {
+                    System.out.println("Invalid data!" + "\nPlease enter a numerical value!");
+                } catch (NieprawidlowyWiekException e) {
+                    System.out.println("Invalid data! " + e.getMessage());
                 }
             }
 
@@ -72,21 +78,21 @@ public class EmployeeData extends EmployedPeople {
     public static long getAgeValue() throws NieprawidlowyWiekException {
         long l = new Scanner(System.in).nextLong();
         if (l > 65){
-            throw new NieprawidlowyWiekException("Za duży wiek!");
+            throw new NieprawidlowyWiekException("Age must be under 65");
         }
         return l;
     }
     public static long getPeselValue() throws NieprawidlowyWiekException {
         long l = new Scanner(System.in).nextLong();
         if (l > 99999999999L){
-            throw new NieprawidlowyWiekException("Za duży wiek!");
+            throw new NieprawidlowyWiekException("PESEL must be equals to 11 positions");
         }
         return l;
     }
     public static long getPhoneValue() throws NieprawidlowyWiekException {
         long l = new Scanner(System.in).nextLong();
         if (l > 999999999999L){
-            throw new NieprawidlowyWiekException("Za duży wiek!");
+            throw new NieprawidlowyWiekException("Phone number must be equals to 12 positions");
         }
         return l;
     }
