@@ -4,7 +4,7 @@ import java.util.*;
 
 public class Main {
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws NieprawidlowyWiekException {
 
 //        EmployedPeople employedPeople = new EmployedPeople();
 //        EmployeeData employeeData = new EmployeeData();
@@ -89,9 +89,9 @@ public class Main {
         }
     }
 
-    public static String getDataToList() {
-        return new Scanner(System.in).nextLine();
-    }
+//    public static String getDataToList() {
+//        return new Scanner(System.in).nextLine();
+//    }
 
     public static String getChar() {
         return new Scanner(System.in).nextLine();

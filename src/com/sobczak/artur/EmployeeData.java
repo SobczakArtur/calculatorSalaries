@@ -1,5 +1,6 @@
 package com.sobczak.artur;
 
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class EmployeeData extends EmployedPeople {
@@ -8,10 +9,22 @@ public class EmployeeData extends EmployedPeople {
 
     public void setEmployeeData() {
 
+        boolean accessAgeNumber = true;
+        boolean accessPeselNumber = true;
+        boolean accessPhoneNumber = true;
         set = true;
         while (set) {
-            System.out.println("Please enter the person's details like:\n name,\n second name,\n surname,\n address,\n age,\n pesel,\n phone number\n" +
-                    "Give name:");
+            System.out.println("""
+                    Please enter the person's details like:
+                     name,
+                     second name,
+                     surname,
+                     address,
+                     age,
+                     pesel,
+                     phone number""");
+            System.out.println();
+            System.out.println("Give name:");
             setName(getDataToList());
             System.out.println("Give second name:");
             setSecondName(getDataToList());
@@ -19,22 +32,36 @@ public class EmployeeData extends EmployedPeople {
             setSurname(getDataToList());
             System.out.println("Give address:");
             setAddress(getDataToList());
-            System.out.println("Give age:");
-            setAge(getNumberValue()); // TODO add exception
-            System.out.println("Give pesel:");
-            setPesel(getNumberValue()); // TODO add exception
-            System.out.println("Give phone number:");
-            setPhone(getNumberValue()); // TODO add exception
+            while (accessAgeNumber) {
+                try {
+                    System.out.println("Give age:");
+                    setAge(getAgeValue()); // TODO - addition throws exception about long age
+                    accessAgeNumber = false;
+                } catch (InputMismatchException | NieprawidlowyWiekException e) {
+                    System.out.println("Invalid data" + "\nPlease enter a numerical value or value age under 65");
+                }
+            }
+            while (accessPeselNumber) {
+                try {
+                    System.out.println("Give pesel:");
+                    setPesel(getPeselValue()); // TODO - addition throws exception about long PESEL
+                    accessPeselNumber = false;
+                }catch (InputMismatchException | NieprawidlowyWiekException e) {
+                    System.out.println("Invalid data" + "\nPlease enter a numerical value or PESEL equals to 11 positions");
+                }
+            }
+            while (accessPhoneNumber) {
+                try {
+                    System.out.println("Give phone number:");
+                    setPhone(getPhoneValue()); // TODO - addition throws exception about long phone number
+                    accessPhoneNumber = false;
+                }catch (InputMismatchException | NieprawidlowyWiekException e) {
+                    System.out.println("Invalid data" + "\nPlease enter a numerical value or phone number equals to 12 positions");
+                }
+            }
 
             set = false;
 
-//            System.out.println("Are you have continue?\nIf yes enter 'Y', if no enter 'N'");
-//            choiceOperation = getChar().charAt(0);
-//            if (choiceOperation == 'Y' || choiceOperation == 'y') {
-//
-//            } else if (choiceOperation == 'N' || choiceOperation == 'n') {
-//                set = false;
-//            }
         }
     }
 
@@ -42,11 +69,25 @@ public class EmployeeData extends EmployedPeople {
         return new Scanner(System.in).nextLine();
     }
 
-    public static long getNumberValue() {
-        return new Scanner(System.in).nextLong();
+    public static long getAgeValue() throws NieprawidlowyWiekException {
+        long l = new Scanner(System.in).nextLong();
+        if (l > 65){
+            throw new NieprawidlowyWiekException("Za duży wiek!");
+        }
+        return l;
     }
-
-//    public static String getChar() {
-//        return new Scanner(System.in).nextLine();
-//    }
+    public static long getPeselValue() throws NieprawidlowyWiekException {
+        long l = new Scanner(System.in).nextLong();
+        if (l > 99999999999L){
+            throw new NieprawidlowyWiekException("Za duży wiek!");
+        }
+        return l;
+    }
+    public static long getPhoneValue() throws NieprawidlowyWiekException {
+        long l = new Scanner(System.in).nextLong();
+        if (l > 999999999999L){
+            throw new NieprawidlowyWiekException("Za duży wiek!");
+        }
+        return l;
+    }
 }
