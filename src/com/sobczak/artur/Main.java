@@ -4,11 +4,11 @@ import java.util.*;
 
 public class Main {
 
-    public static void main(String[] args) throws NieprawidlowyWiekException {
+    public static void main(String[] args) {
 
 //        EmployedPeople employedPeople = new EmployedPeople();
 //        EmployeeData employeeData = new EmployeeData();
-        OperationOnList<EmployedPeople> operationOnList = new OperationOnList<>();
+        OperationOnList<EmployeeData> operationOnList = new OperationOnList<>();
 
         char choiceOperation;
         boolean addElements = false;
@@ -61,11 +61,19 @@ public class Main {
             }
 
             while (updateElements) {
-                System.out.println("Please give data employee which have you update: ");
-                EmployeeData employeeData = new EmployeeData();
-                employeeData.setEmployeeData();
-                System.out.println("Which element to be updated: ");
-                operationOnList.updateElements(getListPosition(), employeeData);
+                System.out.println("""
+                        Which employee on list do you want to update?
+                        Please enter in the order of addition.
+                        And which data do you want to correct:
+                        1: Name
+                        2: Second Name
+                        3: Surname
+                        4: Address
+                        5: Age
+                        6: Pesel
+                        7: Phone
+                        """);
+                operationOnList.updateElements(getListPosition(), getListPosition());
                 System.out.println("Are you have continue?\nIf yes enter 'Y', if no enter 'N'");
                 choiceOperation = getChar().charAt(0);
                 if (choiceOperation == 'Y' || choiceOperation == 'y') {

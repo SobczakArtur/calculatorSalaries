@@ -50,7 +50,7 @@ public class EmployeeData extends EmployedPeople {
                     accessPeselNumber = false;
                 } catch (InputMismatchException e) {
                     System.out.println("Invalid data!" + "\nPlease enter a numerical value!");
-                } catch (NieprawidlowyWiekException e) {
+                } catch (NieprawidlowyWiekException e) { // TODO - correct exception
                     System.out.println("Invalid data! " + e.getMessage());
                 }
             }
@@ -61,7 +61,7 @@ public class EmployeeData extends EmployedPeople {
                     accessPhoneNumber = false;
                 } catch (InputMismatchException e) {
                     System.out.println("Invalid data!" + "\nPlease enter a numerical value!");
-                } catch (NieprawidlowyWiekException e) {
+                } catch (NieprawidlowyWiekException e) { // TODO - correct exception
                     System.out.println("Invalid data! " + e.getMessage());
                 }
             }
@@ -71,7 +71,13 @@ public class EmployeeData extends EmployedPeople {
         }
     }
 
+//    public void setEmployeeDataToUpdate (EmployedPeople employedPeople){
+//        setName(employedPeople);
+//
+//    }
+
     public static String getDataToList() {
+
         return new Scanner(System.in).nextLine();
     }
 
@@ -84,14 +90,14 @@ public class EmployeeData extends EmployedPeople {
     }
     public static long getPeselValue() throws NieprawidlowyWiekException {
         long l = new Scanner(System.in).nextLong();
-        if (l > 99999999999L){
+        if (l == 99999999999L){
             throw new NieprawidlowyWiekException("PESEL must be equals to 11 positions");
         }
         return l;
     }
     public static long getPhoneValue() throws NieprawidlowyWiekException {
         long l = new Scanner(System.in).nextLong();
-        if (l > 999999999999L){
+        if (l == 999999999999L){
             throw new NieprawidlowyWiekException("Phone number must be equals to 12 positions");
         }
         return l;
