@@ -73,7 +73,11 @@ public class Main {
                         6: Pesel
                         7: Phone
                         """);
-                operationOnList.updateElements(getListPosition(), getListPosition());
+                try {
+                    operationOnList.updateElements(getListPosition(), getListPosition());
+                } catch (IndexOutOfBoundsException e){
+                    System.out.println("List is empty!\nPlease first add employee the list.");
+                }
                 System.out.println("Are you have continue?\nIf yes enter 'Y', if no enter 'N'");
                 choiceOperation = getChar().charAt(0);
                 if (choiceOperation == 'Y' || choiceOperation == 'y') {

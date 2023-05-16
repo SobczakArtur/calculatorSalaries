@@ -9,6 +9,10 @@ public class EmployeeData extends EmployedPeople {
 
     public void setEmployeeData() {
 
+        boolean accessName = true;
+        boolean accessSecondName = true;
+        boolean accessSurname = true;
+        boolean accessAddress = true;
         boolean accessAgeNumber = true;
         boolean accessPeselNumber = true;
         boolean accessPhoneNumber = true;
@@ -24,14 +28,42 @@ public class EmployeeData extends EmployedPeople {
                      pesel,
                      phone number""");
             System.out.println();
-            System.out.println("Give name:");
-            setName(getDataToList());
-            System.out.println("Give second name:");
-            setSecondName(getDataToList());
-            System.out.println("Give surname:");
-            setSurname(getDataToList());
-            System.out.println("Give address:");
-            setAddress(getDataToList());
+            while (accessName) {
+                try {
+                    System.out.println("Give name:");
+                    setName(getDataToList());
+                    accessName = false;
+                } catch (IncorrectTextDataException e) {
+                    System.out.println("Invalid data! " + e.getMessage());
+                }
+            }
+            while (accessSecondName) {
+                try {
+                    System.out.println("Give second name:");
+                    setSecondName(getDataToList());
+                    accessSecondName = false;
+                } catch (IncorrectTextDataException e) {
+                    System.out.println("Invalid data! " + e.getMessage());
+                }
+            }
+            while (accessSurname) {
+                try {
+                    System.out.println("Give surname:");
+                    setSurname(getDataToList());
+                    accessSurname = false;
+                } catch (IncorrectTextDataException e) {
+                    System.out.println("Invalid data! " + e.getMessage());
+                }
+            }
+            while (accessAddress) {
+                try {
+                    System.out.println("Give address:");
+                    setAddress(getDataToList());
+                    accessAddress = false;
+                } catch (IncorrectTextDataException e) {
+                    System.out.println("Invalid data! " + e.getMessage());
+                }
+            }
             while (accessAgeNumber) {
                 try {
                     System.out.println("Give age:");
@@ -39,7 +71,7 @@ public class EmployeeData extends EmployedPeople {
                     accessAgeNumber = false;
                 } catch (InputMismatchException e) {
                     System.out.println("Invalid data!" + "\nPlease enter a numerical value!");
-                } catch (NieprawidlowyWiekException e) {
+                } catch (IncorrectNumericalDataException e) {
                     System.out.println("Invalid data! " + e.getMessage());
                 }
             }
@@ -50,7 +82,7 @@ public class EmployeeData extends EmployedPeople {
                     accessPeselNumber = false;
                 } catch (InputMismatchException e) {
                     System.out.println("Invalid data!" + "\nPlease enter a numerical value!");
-                } catch (NieprawidlowyWiekException e) { // TODO - correct exception
+                } catch (IncorrectNumericalDataException e) {
                     System.out.println("Invalid data! " + e.getMessage());
                 }
             }
@@ -61,7 +93,7 @@ public class EmployeeData extends EmployedPeople {
                     accessPhoneNumber = false;
                 } catch (InputMismatchException e) {
                     System.out.println("Invalid data!" + "\nPlease enter a numerical value!");
-                } catch (NieprawidlowyWiekException e) { // TODO - correct exception
+                } catch (IncorrectNumericalDataException e) {
                     System.out.println("Invalid data! " + e.getMessage());
                 }
             }
@@ -76,29 +108,33 @@ public class EmployeeData extends EmployedPeople {
 //
 //    }
 
-    public static String getDataToList() {
+    public static String getDataToList () throws IncorrectTextDataException {
 
-        return new Scanner(System.in).nextLine();
+        String s = new Scanner(System.in).nextLine();
+        if (s.isEmpty()){
+            throw new IncorrectTextDataException("Text data cannot be empty!\nPlease enter text:");
+        }
+        return s;
     }
 
-    public static long getAgeValue() throws NieprawidlowyWiekException {
+    public static long getAgeValue() throws IncorrectNumericalDataException {
+        int i = new Scanner(System.in).nextInt();
+        if (!(i >= 18 && i < 65)){
+            throw new IncorrectNumericalDataException("Age must be equal to or greater than 18 and under 65");
+        }
+        return i;
+    }
+    public static long getPeselValue() throws IncorrectNumericalDataException {
         long l = new Scanner(System.in).nextLong();
-        if (l > 65){
-            throw new NieprawidlowyWiekException("Age must be under 65");
+        if (l < 8888888888L || l > 888888888888L){ //TODO - fixes logical condition
+            throw new IncorrectNumericalDataException("PESEL must be equals to 11 positions");
         }
         return l;
     }
-    public static long getPeselValue() throws NieprawidlowyWiekException {
+    public static long getPhoneValue() throws IncorrectNumericalDataException {
         long l = new Scanner(System.in).nextLong();
-        if (l == 99999999999L){
-            throw new NieprawidlowyWiekException("PESEL must be equals to 11 positions");
-        }
-        return l;
-    }
-    public static long getPhoneValue() throws NieprawidlowyWiekException {
-        long l = new Scanner(System.in).nextLong();
-        if (l == 999999999999L){
-            throw new NieprawidlowyWiekException("Phone number must be equals to 12 positions");
+        if (l < 88888888888L || l > 8888888888888L){ //TODO - fixes logical condition
+            throw new IncorrectNumericalDataException("Phone number must be equals to 12 positions");
         }
         return l;
     }

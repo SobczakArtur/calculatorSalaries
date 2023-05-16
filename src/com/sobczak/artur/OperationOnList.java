@@ -22,19 +22,8 @@ public class OperationOnList<E> {
 
     public void updateElements(int objectInTheList, int positionInTheList){
 
-//        System.out.println("""
-//                        Which data on list do you want to correct:
-//                        1: Name
-//                        2: Second Name
-//                        3: Surname
-//                        4: Address
-//                        5: Age
-//                        6: Pesel
-//                        7: Phone
-//                        """);
-
         Scanner scanner = new Scanner(System.in);
-        EmployeeData employeeData = new EmployeeData();
+        EmployeeData employeeData;
         E oldEmployee = employee.get(objectInTheList);
         employeeData = (EmployeeData) oldEmployee;
 
@@ -72,7 +61,6 @@ public class OperationOnList<E> {
                     break;
             }
         }
-        // TODO - add exception ArrayIndexOutOfBoundsException
 
         System.out.println("Element " + objectInTheList + " has been updated!");
         employee.set(objectInTheList, (E) employeeData);
