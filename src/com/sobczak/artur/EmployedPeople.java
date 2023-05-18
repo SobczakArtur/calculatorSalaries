@@ -3,7 +3,8 @@ package com.sobczak.artur;
 public class EmployedPeople {
 
     private String name, secondName, surname, address;
-    private long age, pesel, phone;
+    private int age;
+    private long pesel, phone;
 
 
     public String getName() {
@@ -11,7 +12,6 @@ public class EmployedPeople {
     }
 
     public void setName(String name) {
-        // TODO add exception
         this.name = name;
         System.out.println("Name has added!");
     }
@@ -21,7 +21,6 @@ public class EmployedPeople {
     }
 
     public void setSecondName(String secondName) {
-        // TODO add exception
         this.secondName = secondName;
         System.out.println("Second name has added!");
     }
@@ -31,7 +30,6 @@ public class EmployedPeople {
     }
 
     public void setSurname(String surname) {
-        // TODO add exception
         this.surname = surname;
         System.out.println("Surname has added!");
     }
@@ -41,17 +39,15 @@ public class EmployedPeople {
     }
 
     public void setAddress(String address) {
-        // TODO add exception
         this.address = address;
         System.out.println("Addres has added!");
     }
 
-    public long getAge() {
+    public int getAge() {
         return age;
     }
 
-    public void setAge(long age) {
-        // TODO add exception
+    public void setAge(int age) {
         this.age = age;
         System.out.println("Age has added!");
     }
@@ -61,7 +57,6 @@ public class EmployedPeople {
     }
 
     public void setPesel(long pesel) {
-        // TODO add exception
         this.pesel = pesel;
         System.out.println("Pesel has added!");
     }
@@ -71,7 +66,6 @@ public class EmployedPeople {
     }
 
     public void setPhone(long phone) {
-        // TODO add exception
         this.phone = phone;
         System.out.println("Phone has added!");
     }
@@ -79,13 +73,12 @@ public class EmployedPeople {
     @Override
     public String toString() {
         return "EmployedPeople\n" +
-                "name='" + getName() + '\'' +
-                ", secondName='" + getSecondName() + '\'' +
-                ", surname='" + getSurname() + '\'' +
-                ", address='" + getAddress() + '\'' +
-                ", age=" + getAge() +
-                ", pesel=" + getPesel() +
-                ", phone=" + getPhone() + "\n";
+                "name= '" + getName() + '\'' +
+                ", secondName= '" + getSecondName() + '\'' +
+                ", surname= '" + getSurname() + '\'' +
+                ", address= '" + getAddress() + '\'' +
+                ", age= " + getAge() +
+                ", pesel= " + getPesel() +
+                ", phone= " + "+48 " + getPhone() + "\n";
     }
-
 }

@@ -117,7 +117,7 @@ public class EmployeeData extends EmployedPeople {
         return s;
     }
 
-    public static long getAgeValue() throws IncorrectNumericalDataException {
+    public static int getAgeValue() throws IncorrectNumericalDataException {
         int i = new Scanner(System.in).nextInt();
         if (!(i >= 18 && i < 65)){
             throw new IncorrectNumericalDataException("Age must be equal to or greater than 18 and under 65");
@@ -126,15 +126,15 @@ public class EmployeeData extends EmployedPeople {
     }
     public static long getPeselValue() throws IncorrectNumericalDataException {
         long l = new Scanner(System.in).nextLong();
-        if (l < 8888888888L || l > 888888888888L){ //TODO - fixes logical condition
+        if (!(l > 10000000000L && l < 99999999999L)){
             throw new IncorrectNumericalDataException("PESEL must be equals to 11 positions");
         }
         return l;
     }
     public static long getPhoneValue() throws IncorrectNumericalDataException {
         long l = new Scanner(System.in).nextLong();
-        if (l < 88888888888L || l > 8888888888888L){ //TODO - fixes logical condition
-            throw new IncorrectNumericalDataException("Phone number must be equals to 12 positions");
+        if (!(l > 100000000L && l < 999999999L)){
+            throw new IncorrectNumericalDataException("Phone number must be equals to 9 positions");
         }
         return l;
     }
